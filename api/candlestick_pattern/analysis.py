@@ -2,7 +2,7 @@ import datetime
 import os
 import requests
 import pandas as pd
-from candlestick_pattern import patterns
+from api.candlestick_pattern import patterns
 
 
 def convert_to_datetime(timestamp):
@@ -25,7 +25,7 @@ def change_DataFrame(data):
 
     return df
 
-def get_data(ticker, days, currency):
+def get_analysis(ticker, days, currency):
     url = f"https://api.coingecko.com/api/v3/coins/{ticker}/ohlc?vs_currency={currency}&days={days}&precision=0"
 
     token = os.environ.get('COINGECKO_TOKEN')
