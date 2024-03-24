@@ -4,6 +4,10 @@ numpy==1.26.4
 pandas==2.2.1
 requests==2.31.0
 
+#youtube
+google-api-python-client==2.123.0
+
 #global
 fastapi==0.110.0
 uvicorn[standard]
+
