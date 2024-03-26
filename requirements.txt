@@ -9,6 +9,7 @@ google-api-python-client==2.123.0
 deepgram-sdk==3.2.2
 pytube==15.0.0
 cohere==5.1.2
+openai==1.14.3
 
 #global
 fastapi==0.110.0

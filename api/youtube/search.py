@@ -28,7 +28,7 @@ def search_videos(query):
         'safeSearch':'moderate',
         'videoDuration':'medium',
         'publishedAfter':uploaded_date,
-        'maxResults':5
+        'maxResults':3
     };
     search_response = youtube.search().list(**search_parameters).execute()
 
@@ -50,4 +50,4 @@ def search_videos(query):
 
     return videos
 
-print(search_videos('bitcoin news|bitcoin cryptocurrency prediction|bitcoin cryptocurrency news'))
+# print(search_videos('bitcoin news|bitcoin cryptocurrency prediction|bitcoin cryptocurrency news'))
