@@ -51,4 +51,17 @@ def download_and_transcribe(youtube_url):
             os.remove(audio_file)
     return response
 
-print(download_and_transcribe('https://www.youtube.com/watch?v=0CmtDk-joT4'))
+# print(download_and_transcribe('https://youtu.be/1BtzmHvqZsA?si=8YJU2ccnVrxpYOLA'))
+
+
+
+
+
+
+
+# docs
+# https://deepgram.com/learn/how-to-transcribe-and-analyze-any-youtube-video
+# https://gemini.google.com/app/f93510b300b0511c
+# https://developers.deepgram.com/reference/listen-file
+
+
