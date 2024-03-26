@@ -11,7 +11,8 @@ async def pattern_recognition():
     response = json.loads(data.to_json(orient='records'))
     return response
 
+@app.get("/youtube")
 async def youtube_video_analysis():
-    data = get_video_analysis('bitcoin news|bitcoin cryptocurrency prediction|bitcoin cryptocurrency news')
-    response = json.loads(data.to_json(orient='records'))
-    return response
+    data = get_video_analysis('bitcoin news') # |bitcoin cryptocurrency prediction|bitcoin cryptocurrency news
+    # response = json.loads(data.to_json(orient='records'))
+    return data

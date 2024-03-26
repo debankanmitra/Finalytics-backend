@@ -1,6 +1,6 @@
 import time
-from summarizer import get_summary, llm_summarize
-from search import search_videos
+from api.youtube.summarizer import get_summary, llm_summarize
+from api.youtube.search import search_videos
 
 def get_video_analysis(keywords):
     analysis = []
@@ -21,7 +21,7 @@ def get_video_analysis(keywords):
     llm_analysis = llm_summarize(analysis)
     analysis.append({'LLM Analysis': llm_analysis})
     
-    print(analysis)
+    return analysis
 
-get_video_analysis('bitcoin news|bitcoin cryptocurrency prediction|bitcoin cryptocurrency news')
+# get_video_analysis('bitcoin news|bitcoin cryptocurrency prediction|bitcoin cryptocurrency news')
     
