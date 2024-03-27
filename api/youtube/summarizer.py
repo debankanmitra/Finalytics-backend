@@ -1,7 +1,7 @@
 # https://docs.cohere.com/reference/summarize-2
 # Logic to summarize Youtube videos
 
-from api.youtube.transcription import download_and_transcribe
+from api.youtube.transcription import get_youtube_captions
 from openai import OpenAI
 import cohere 
 import os
@@ -9,10 +9,10 @@ import os
 COHERE_API_KEY=os.environ.get('COHERE_API_KEY')
 OPENAI_API_KEY=os.environ.get('OPENAI_API_KEY')
 
-def get_summary(youtube_url):
+def get_summary(video_id):
     co = cohere.Client(COHERE_API_KEY)
 
-    transcription = download_and_transcribe(youtube_url)
+    transcription = get_youtube_captions(video_id)
     response = co.summarize(
         model='summarize-xlarge',
         length='long',
@@ -46,3 +46,4 @@ def llm_summarize(summaries):
 # print(get_summary('https://www.youtube.com/watch?v=Unayrm7B-cw'))
 # https://platform.openai.com/docs/api-reference/chat/create
 # https://platform.openai.com/docs/api-reference/chat/create?lang=python
+# https://medium.com/@ax.chistyakov/openai-api-and-basics-of-prompt-engineering-df1abc392d7f

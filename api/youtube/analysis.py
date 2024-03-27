@@ -9,7 +9,7 @@ def get_video_analysis(keywords):
     videos=search_videos(keywords)
 
     for index, video in enumerate(videos, start=1):
-        summary=get_summary(video['url'])
+        summary=get_summary(video['id'])
         record = {
             f'summary {index}': summary,
         }

@@ -6,8 +6,8 @@ requests==2.31.0
 
 #youtube
 google-api-python-client==2.123.0
-deepgram-sdk==3.2.2
-pytube==15.0.0
+youtube-transcript-api==0.6.2
+#deepgram-sdk==3.2.2
 cohere==5.1.2
 openai==1.14.3
 
