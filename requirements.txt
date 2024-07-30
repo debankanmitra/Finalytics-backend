@@ -10,6 +10,7 @@ youtube-transcript-api==0.6.2
 #deepgram-sdk==3.2.2
 cohere==5.1.2
 openai==1.14.3
+newsapi-python==0.2.7
 
 #global
 fastapi==0.110.0
