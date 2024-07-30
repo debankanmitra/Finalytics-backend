@@ -1,6 +1,18 @@
 import os
 import requests
 
+def format_large_number(num):
+    if num >= 1_000_000_000_000:
+        return f"{num / 1_000_000_000_000:.1f}T"
+    elif num >= 1_000_000_000:
+        return f"{num / 1_000_000_000:.1f}B"
+    elif num >= 1_000_000:
+        return f"{num / 1_000_000:.1f}M"
+    else:
+        return str(num)
+
+
+
 def list_coins():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=100"
     token = os.environ.get('COINGECKO_TOKEN')
@@ -81,9 +93,9 @@ def get_info(id: str):
                 "ath": coin["market_data"]["ath"]["usd"],
                 "ath_change_percentage": coin["market_data"]["ath_change_percentage"]["usd"],
                 "atl": coin["market_data"]["atl"]["usd"],
-                "market_cap": coin["market_data"]["market_cap"]["usd"],
-                "fully_diluted_valuation": coin["market_data"]["fully_diluted_valuation"]["usd"],
-                "total_volume": coin["market_data"]["total_volume"]["usd"],
+                "market_cap": format_large_number(coin["market_data"]["market_cap"]["usd"]),
+                "fully_diluted_valuation": format_large_number(coin["market_data"]["fully_diluted_valuation"]["usd"]),
+                "total_volume": format_large_number(coin["market_data"]["total_volume"]["usd"]),
                 "high_24h": coin["market_data"]["high_24h"]["usd"],
                 "low_24h": coin["market_data"]["low_24h"]["usd"],
                 "price_change_24h": coin["market_data"]["price_change_24h"],
@@ -94,9 +106,9 @@ def get_info(id: str):
                 "price_change_percentage_1h_in_currency": coin["market_data"]["price_change_percentage_1h_in_currency"]["usd"],
                 "price_change_percentage_24h_in_currency": coin["market_data"]["price_change_percentage_24h_in_currency"]["usd"],
                 "market_cap_change_24h_in_currency": coin["market_data"]["market_cap_change_24h_in_currency"]["usd"],
-                "total_supply": coin["market_data"]["total_supply"],
-                "circulating_supply": coin["market_data"]["circulating_supply"],
-                "max_supply": coin["market_data"]["max_supply"],
+                "total_supply": format_large_number(coin["market_data"]["total_supply"]) if coin["market_data"]["total_supply"] else None,
+                "circulating_supply": format_large_number(coin["market_data"]["circulating_supply"]) if coin["market_data"]["circulating_supply"] else None,
+                "max_supply": format_large_number(coin["market_data"]["max_supply"]) if coin["market_data"]["max_supply"] else None,
                 "last_updated": coin["market_data"]["last_updated"]
     }
 
