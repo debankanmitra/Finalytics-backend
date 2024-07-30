@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from api.Newsfeed import get_specific_news, top_news
 from api.candlestick_pattern.analysis import get_analysis
 from api.youtube.analysis import get_video_analysis
-from api.Coins import list_coins
+from api.Coins import get_info, list_coins
 
 app = FastAPI()
 
@@ -32,4 +32,9 @@ async def get_news():
 @app.get("/news/{coin}")
 async def get_crypto_news(coin: str):
     data = get_specific_news(coin)
+    return data
+
+@app.get("/coin/{id}")
+async def get_crypto_info(id: str):
+    data = get_info(id)
     return data
